@@ -1,0 +1,542 @@
+<style>
+	body {
+	color: #505153;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	background-color: #ffffff;
+}
+
+a {
+	text-decoration: none;
+	color: red;
+}
+a:hover {
+	text-decoration: underline;
+	color: #505153;
+}
+input,
+select,
+textarea,
+button {
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+code,
+input[type=text],
+input[type=password],
+select,
+textarea {
+	background-color: yellow;
+	border: 1px solid #5f6063;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit],
+button {
+	background-color: red;
+	border: 1px solid #505153;
+	color: white;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+	background-color: #fff;
+	border-color: #ccc;
+	color: #ccc;
+}
+
+hr {
+	height: 1px;
+	border: 0px;
+	color: #C2BFBF;
+	background-color: #C2BFBF;
+}
+
+code {
+	color: black;
+	border:1px outset #000000;
+	padding: 0.5em;
+	font-family: "Courier New", Courier, monospace;
+}
+
+p {
+	margin: 1em 0;
+}
+
+pre {
+	padding: 1.0em;
+	background-color: #eee;
+	border: 0.1em dashed #505153;
+	font-size: 1.0em;
+}
+
+img,
+a img {
+	border-width: 0;
+}
+
+div#container, .container {
+	width: 60em;
+	margin: 0 auto;
+	text-align: left;
+}
+
+table {
+	background-color: transparent;
+	border-collapse: collapse;
+}
+
+td,
+th,
+form.tableless label {
+	margin: .1em;
+	padding: .1em;
+}
+form.tableless label,
+th {
+	text-align: right;
+	vertical-align: top;
+	font-weight: 800;
+	min-width: 30px;
+}
+form.tableless label a,
+th a {
+	color: #505153;
+}
+form.tableless br {
+	clear: left;
+	margin-bottom: .7em;
+}
+thead tr th,
+tr.header th {
+	text-align: center;
+	vertical-align: bottom;
+	min-width: 30px;
+}
+
+tr.header th div.expander {
+	text-align: left;
+	float: left;
+}
+
+.note {
+	font-size: .8em;
+	color: #aaa;
+}
+
+.editViewNote {
+	margin-top: 0.25em;
+	margin-left: 1.5em;
+	color: #6F7072;
+}
+
+.editViewNote.last {
+	margin-bottom: 1.0em;
+}
+
+/*.editViewNote.last:last-child {
+	margin-bottom: 0.1em;
+}*/
+
+tr.even {
+	background-color: #f0f0f0;
+}
+tr.odd {
+	background-color: #f8f8f8;
+}
+tr.userdisabled,
+span.userdisabled {
+	background-color: #eaa;
+}
+
+#header a {
+	font-weight: bold;
+	text-decoration: none;
+}
+#footer {
+	padding: .5em 1em;
+	color: #505153;
+	font-size: .9em;
+}
+#footer a {
+	color: #505153;
+}
+
+
+
+/***************************************************************** MENU */
+ul.menu {
+	list-style-type: none;
+	margin: 1em 0em 0em 0em;
+	padding: 0.1em 0 0 2em;
+	background-color: red;
+	clear: both;
+	border-style: solid;
+	border-color: #C2BFBF;
+	border-width: 0;
+	border-top-width: 0.1em;
+	border-bottom-width: 0.1em;
+	text-align: right;
+	text-transform: uppercase;
+}
+ul.menu li {
+	display: inline;
+	margin: 0;
+	padding: .1em .6em;
+}
+#header ul.menu li a, ul.menu li a {
+	color: white;
+	font-weight: bold;
+	text-decoration:none;
+}
+#header ul.menu li a:hover, ul.menu li a:hover {
+	color: #c2bfbf;
+}
+ul.menu li.selected {
+	background-color: white;
+	border: 0.1em solid #c2bfbf;
+	border-style: solid solid none solid;
+}
+#header ul.menu li.selected a, ul.menu li.selected a {
+	color: red;
+}
+
+div.submenu {
+	margin: 0 0 -1em 0;
+	min-height: 1em;
+	text-transform: uppercase;
+}
+
+div.submenu ul {
+	text-align: right;
+	clear: both;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+div.submenu ul.selected {
+	display: block;
+}
+
+div.submenu ul li {
+	display: inline-block;
+	margin: 0;
+	padding: .2em .6em 0 .6em;
+	white-space: nowrap;
+	border-left: .2em solid #c2bfbf;
+}
+
+#header div.submenu ul li a, div.submenu ul li a {
+	color: #505153;
+	text-decoration: none;
+	font-weight: normal;
+}
+div.submenu ul li:hover {
+	background-color: #eee;
+}
+#header div.submenu ul li.selected a, div.submenu ul li.selected a {
+	color: red;
+}
+#header div.submenu ul li.selected a:hover, div.submenu ul li.selected a:hover {
+	color: black;
+}
+
+.occlude {
+	background-color: #B9D9EB;
+	border: 0.1em solid #c2bfbf;
+	z-index: 100;
+}
+
+.boxTitle {
+	font-size: 1em;
+	color: #505153;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.error {
+	color: red !important;
+	font-weight: bold;
+}
+.warning {
+	color: goldenrod !important;
+	font-weight: bold;
+}
+.info {
+	color: black !important;
+	font-weight: bold;
+}
+.success {
+	color: blue !important;
+	font-weight: bold;
+}
+
+.fakeDisabled {
+	background-color: #fff;
+	border-color: #ccc;
+	color: #ccc;
+}
+
+.contentBox {
+	width: 100%;
+	margin: .75em;
+	padding: 2em;
+	border: .2em solid #c2bfbf;
+}
+
+/* IE[456] doesn't understand the '>' child selector
+We hide this from IE[456] because it really screws up page layout when you set auto width */
+* > .contentBox {
+	width: auto;
+}
+
+/*
+ * h1 should ONLY be the VERY first thing inside contentBox (-10 margin-top)
+ * h2 and h3 can be used anywhere inside contentBox to insert a heading
+ * h2 is a major divider: it looks graphically exactly like h1 (except the margin-top)
+ * h3 looks like a subheading (less padding, indented, smaller font)
+ */
+.contentBox h1,
+.contentBox h2,
+.contentBox h3 {
+	margin: -1.67em -1.67em 1em -1.67em;
+	padding: .4em 1.33em;
+	background-color: #505153;
+	border-bottom: .1em solid #c2bfbf;
+	color: white;
+	text-decoration: none;
+	font-weight: 900;
+	font-size: 1.2em;
+}
+.contentBox h2 {
+	border-top: .1em solid #c2bfbf;
+	margin: 1em -1em 1em -1em;
+}
+.contentBox h3 {
+	/* Leave whitespace on the sides to show it's a subheading */
+	margin: 1.2em 0;
+	padding: .2em 1.2em;
+	border: .1em solid #c2bfbf;
+	font-size: 1.1em;
+}
+.contentBox h3.error,
+.contentBox h3.success {
+	background-color: #eee;
+	text-align: center;
+	font-weight: bold;
+}
+
+.pageTitle {
+	font-size: 1.8em;
+}
+
+.wide {
+	width: 100%;
+}
+table.grid {
+	background-color: white;
+	border: .2em solid #cbdbeb;
+}
+table.grid tr td {
+	border: .1em solid #cbdbeb;
+}
+table.grid tr th {
+	background-color: #B9D9EB;
+	border: .2em solid #cbdbeb;
+}
+table.grid tr th[scope='row'] {
+	width: 20%;
+}
+
+.padding,
+table.padding td,
+table.padding th {
+	padding: .3em;
+}
+
+span.required,
+td.required span {
+	background: transparent url(/content/reddot.png) no-repeat top left;
+	padding-left: 7px;
+}
+
+a.inverse {
+	color: #505153;
+}
+
+a.inverse:hover {
+	color: red;
+}
+
+.tab {
+padding-left:.8em;
+padding-right:.8em;
+}
+
+.lang-selection img {
+	vertical-align: bottom;
+}
+
+form.tableless > div {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+form.tableless > div > div {
+	display: -ms-flexbox;
+	display: flex;
+}
+
+form.tableless label {
+	display: block;
+	padding: 0pt 1em;
+	text-align: right;
+	width: 12em;
+	color: black;
+}
+form.tableless span {
+	display: block;
+	margin-bottom: 0.5em;
+	padding: 0pt;
+}
+form.tableless span select {
+	padding: 1px;
+}
+
+.accessible {
+	position: absolute;
+	top: 0em;
+	left: -500em;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.group-td-vert.answers {
+    min-width: 15em;
+    white-space: nowrap;
+}
+
+.group-td-vert.answers .choice {
+    white-space: nowrap;
+    margin-right: 0.5em;
+}
+
+.floatClear {
+	display: block;
+	clear: both;
+}
+.support_access_policy_id_class, .jump_policy_id_class {
+	width: 24em;
+}
+</style>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>McDonalds Wifi Portal | Powered by McDonaldsInternet.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<link href="/content/common.css" rel="stylesheet" type="text/css" />
+<link href="/content/public.css" rel="stylesheet" type="text/css" />
+<link href="/content/mobile.css" rel="stylesheet" type="text/css" />
+<link href="/content/portal-customizations.css?_c=0" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+
+<div id="header" class="contentBox">
+	<div class="logo-container">
+		
+	</div>
+	<div class="pageTitle">
+		McDonalds Wi-Fi Portal
+	</div>
+	<div class="lang-selection">
+		<span class="language_selection" id="language_selection">
+		English (US)
+</span>
+	</div>
+</div>
+
+<div class="contentBox" id="sessionKeyBox">
+	<h1 class="sectionTitle">
+		<span>
+		Enjoy Free Wi-fi Now
+		</span>
+			&nbsp;
+	
+	</h1>
+	
+<div>
+<form action="/action_page.php">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+    <a href="https://michaelseh.com" class="inverse" target="_blank">Terms and Conditions
+ <br><br>
+</form>
+</div>
+
+<button onclick="myFunction()">Enter</button>
+<br>
+ <script>
+function myFunction() {
+  alert("Your Connection is garbage.");}
+</script> 
+
+
+
+<span class="params"
+	id="access_key_params"
+	data-disable-clickonce="false"
+	data-chat-enabled="false"
+	data-current-locale="en-us"
+></span>
+<span class="params"
+	id="access_key_strings"
+	data-invalid-key="The key that you entered is not valid."
+	data-validation-error="Error validating access key."
+></span>
+
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript" src="/content/lib/jquery.js"></script>
+<script type="text/javascript" src="/content/portal.js"></script>
+<!--[if lt IE 10]>
+<script type="text/javascript" src="/content/ie9_public.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="/api/start_session.js"></script>
+<script type="text/javascript" src="/api/content/core.js"></script>
+<script type="text/javascript" src="/content/access_key_input.js"></script>
+
+
+<div id="footer" class="contentBox">
+	Copyright © 2020 Redistribution Prohibited. All Rights Reserved.
+</div>
+
+<div id="powered-by">
+	<a id="powered_by_text" href="https://michaelseh.com" class="inverse" target="_blank">Support</a>
+</div>
+
+</div>
+
+</body>
+</html>
